@@ -1,0 +1,90 @@
+:root {
+  --transition-base: .2s all ease-in-out;
+}
+
+/*-----------------------*/
+/*--- Login Main Page ---*/
+/*-----------------------*/
+.login {
+  background-size: cover !important;
+}
+
+/*-------------------*/
+/*--- Login Block ---*/
+/*-------------------*/
+#login {
+  position: relative !important;
+  margin: 0 5% !important;
+  width: auto !important;
+  padding: 2rem !important;
+}
+
+/*------------------*/
+/*--- Login Form ---*/
+/*------------------*/
+#loginform input[type=submit] {
+  display: block !important;
+  width: 100% !important;
+  margin: 1rem 0 0 0 !important;
+  padding: 14px !important;
+  transition: var(--transition-base) !important;
+}
+#loginform input[type=submit]:hover {
+  opacity: .75 !important;
+}
+
+/*--------------------*/
+/*--- Bottom Links ---*/
+/*--------------------*/
+.login #backtoblog,
+.login #nav {
+  padding: 0 !important;
+}
+.login #backtoblog a:hover,
+.login #nav a:hover {
+  transition: var(--transition-base) !important;
+}
+.login #nav {
+  text-align: center !important;
+  margin: 1rem 0 0 0 !important;
+}
+.login #backtoblog {
+  display: none !important;
+}
+
+/*------------------*/
+/*--- Login Form ---*/
+/*------------------*/
+#loginform {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 0 !important;
+  padding: 0 !important;
+}
+#loginform label {
+  font-size: 13px !important;
+  margin: 0 0 6px 0 !important;
+}
+#loginform input {
+  border-radius: 0 !important;
+  font-size: 14px !important;
+  padding: 10px !important;
+  line-height: 1 !important;
+}
+#loginform #rememberme {
+  padding: 0 !important;
+}
+
+
+/*---------------------*/
+/*--- Media Queries ---*/
+/*---------------------*/
+@media only screen and (min-width: 768px) {
+
+  /* Login Block */
+  #login {
+    width: 320px !important;
+    margin: 0 auto !important;
+  }
+
+}
