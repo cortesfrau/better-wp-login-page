@@ -91,20 +91,29 @@ $label_color      = $settings['label_color'];
     padding: 0 !important;
   }
 
+  /*--------------------------*/
+  /*--- Lost Password Form ---*/
+  /*--------------------------*/
+  #lostpasswordform {
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+  }
+
   /*--------------*/
   /*--- Inputs ---*/
   /*--------------*/
-  #loginform input {
+  input {
     border-radius: 0 !important;
     font-size: 14px !important;
     padding: 10px !important;
     line-height: 1 !important;
   }
-  #loginform input:focus {
+  input:focus {
     border-color: var(--accent-color) !important;
     box-shadow: 0 0 5px 0 var(--accent-color) !important;
   }
-  #loginform input[type=submit] {
+  input[type=submit] {
     background: var(--submit-btn-bg) !important;
     border-color: var(--submit-btn-bg) !important;
     color: var(--submit-btn-text) !important;
@@ -114,7 +123,7 @@ $label_color      = $settings['label_color'];
     padding: 14px !important;
     transition: var(--transition-base) !important;
   }
-  #loginform input[type=submit]:hover {
+  input[type=submit]:hover {
     opacity: var(--less-opacity) !important;
   }
   input[type=checkbox]:checked::before {
@@ -131,7 +140,7 @@ $label_color      = $settings['label_color'];
   /*--------------*/
   /*--- Labels ---*/
   /*--------------*/
-  #loginform label {
+  label {
     color: var(--label-color) !important;
     font-size: 13px !important;
     margin: 0 0 6px 0 !important;

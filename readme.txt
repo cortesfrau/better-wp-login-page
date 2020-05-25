@@ -24,6 +24,9 @@ This plugin allows users to enhance the default login page.
 
 == Changelog ==
 
+= 1.0.3 =
+- Adds styles to the remember password subform.
+
 = 1.0.2 =
 - Change in the public styles enqueue method.
 - Fixed typos in settings page.
