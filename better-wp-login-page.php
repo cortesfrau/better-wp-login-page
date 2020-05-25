@@ -5,7 +5,7 @@
  * Text Domain: better_wp_login_page
  * Description: This plugin allows users to enhance the default login page.
  * Plugin URI: https://github.com/cortesfrau/better-wp-login-page/
- * Version: 1.0.1
+ * Version: 1.0.2
  * Author: Lluís Cortès
  * Author URI: https://lluiscortes.com
  * License: GPLv2 or later
@@ -145,7 +145,10 @@ class Better_WP_Login_Page {
 
   }
 
-  // Change the logo Image
+
+  //-------------------------------//
+  //--- Public Scripts & Styles ---//
+  //-------------------------------//
   function public_scripts_styles() {
 
     // JS Script
@@ -154,100 +157,9 @@ class Better_WP_Login_Page {
     // CSS Stylesheet
     wp_enqueue_style( 'bwplp-public-css', BWPLP_URL . '/css/bwplp-public.css', array(), BWPLP_VERSION );
 
-    $logo_id        = $this->get_settings()['logo_img'];
-    $accent_color   = $this->get_settings()['accent_color'];
-    $submit_btn_bg  = $this->get_settings()['submit_btn_bg'];
-    $bg_color       = $this->get_settings()['bg_color'];
-    $form_bg        = $this->get_settings()['form_bg'];
-    $bg_img         = $this->get_settings()['bg_img'];
-    $label_color    = $this->get_settings()['label_color'];
+    include_once ( 'inc/public-styles.php' );
 
-    ?>
-
-    <style type="text/css">
-
-      /*------------------------*/
-      /*--- Background Image ---*/
-      /*------------------------*/
-      <?php if ( ! empty( $bg_img ) ) {
-
-        $bg_img = wp_get_attachment_image_src( $bg_img, 'full' )[0];
-
-        ?>
-
-        .login {
-          background-image: url(<?php echo $bg_img; ?>);
-        }
-
-      <?php } else { ?>
-
-        .login {
-          background: <?php echo $bg_color; ?>;
-        }
-
-     <?php } ?>
-
-      .login #backtoblog a:hover, .login #nav a:hover {
-        color: <?php echo $accent_color; ?> !important;
-      }
-
-      /*------------*/
-      /*--- LOGO ---*/
-      /*------------*/
-      <?php if ( ! empty( $logo_id ) ) {
-
-        $logo_url = wp_get_attachment_image_src( $logo_id, 'full' )[0];
-
-        ?>
-
-        #login h1 a {
-          background-image: url(<?php echo $logo_url; ?>) !important;
-          background-size: contain !important;
-          background-repeat: no-repeat !important;
-          background-position: center center !important;
-          width: 100% !important;
-          min-height: 120px !important;
-        }
-
-      <?php } ?>
-
-      /*-------------------*/
-      /*--- Login Block ---*/
-      /*-------------------*/
-      #login {
-        background: <?php echo $form_bg; ?> !important;
-      }
-
-      /*------------------*/
-      /*--- Login Form ---*/
-      /*------------------*/
-      #loginform input:focus {
-        border-color: <?php echo $accent_color; ?>;
-        box-shadow: 0 0 5px 0 <?php echo $accent_color; ?>;
-      }
-      #loginform input[type=submit] {
-        background: <?php echo $submit_btn_bg; ?>;
-        border-color: <?php echo $submit_btn_bg; ?>;
-      }
-      #loginform .dashicons {
-        color: <?php echo $accent_color; ?> !important;
-      }
-      #loginform label {
-        color: <?php echo $label_color; ?> !important;
-      }
-
-      /*----------------*/
-      /*--- Messages ---*/
-      /*----------------*/
-      .login .message,
-      .login .success {
-        border-color: <?php echo $accent_color; ?> !important;
-      }
-
-
-    </style>
-
-  <?php }
+  }
 
 
 
@@ -259,6 +171,7 @@ class Better_WP_Login_Page {
   public function register_settings() {
     register_setting( 'better_wp_login_page_settings', 'bwplp_logo_img' );
     register_setting( 'better_wp_login_page_settings', 'bwplp_submit_btn_bg' );
+    register_setting( 'better_wp_login_page_settings', 'bwplp_submit_btn_text_color' );
     register_setting( 'better_wp_login_page_settings', 'bwplp_accent_color' );
     register_setting( 'better_wp_login_page_settings', 'bwplp_bg_color' );
     register_setting( 'better_wp_login_page_settings', 'bwplp_form_bg' );
@@ -270,13 +183,14 @@ class Better_WP_Login_Page {
   function get_settings(){
 
     $settings = [
-      'logo_img'        => get_option( 'bwplp_logo_img' ),
-      'bg_color'        => get_option( 'bwplp_bg_color' ),
-      'submit_btn_bg'   => get_option( 'bwplp_submit_btn_bg' ),
-      'accent_color'    => get_option( 'bwplp_accent_color' ),
-      'form_bg'         => get_option( 'bwplp_form_bg' ),
-      'bg_img'          => get_option( 'bwplp_bg_img' ),
-      'label_color'     => get_option( 'bwplp_label_color' ),
+      'logo_img'              => get_option( 'bwplp_logo_img' ),
+      'bg_color'              => get_option( 'bwplp_bg_color' ),
+      'submit_btn_bg'         => get_option( 'bwplp_submit_btn_bg' ),
+      'submit_btn_text_color' => get_option( 'bwplp_submit_btn_text_color' ),
+      'accent_color'          => get_option( 'bwplp_accent_color' ),
+      'form_bg'               => get_option( 'bwplp_form_bg' ),
+      'bg_img'                => get_option( 'bwplp_bg_img' ),
+      'label_color'           => get_option( 'bwplp_label_color' ),
     ];
 
     return $settings;
@@ -300,7 +214,7 @@ class Better_WP_Login_Page {
 
         <table class="form-table">
           <tr>
-            <th><?php echo __( 'Custom Logo', 'better_wp_login_page' ); ?></th>
+            <th><?php echo __( 'Custom logo', 'better_wp_login_page' ); ?></th>
             <td><?php $this->image_uploader( 'bwplp_logo_img' ); ?></td>
           </tr>
           <tr>
@@ -328,8 +242,16 @@ class Better_WP_Login_Page {
             <th><?php echo __( 'Accent color', 'better_wp_login_page' ); ?></th>
             <td><input type="text" name="bwplp_accent_color" value="<?php echo $settings['accent_color']; ?>" class="color-picker" data-alpha="true" /></td>
           </tr>
+        </table>
+
+        <h3><?php echo __( 'Submit button', 'better_wp_login_page' ); ?></h3>
+        <table class="form-table">
           <tr>
-            <th><?php echo __( 'Submit button background)', 'better_wp_login_page' ); ?></th>
+            <th><?php echo __( 'Text', 'better_wp_login_page' ); ?></th>
+            <td><input type="text" name="bwplp_submit_btn_text_color" value="<?php echo $settings['submit_btn_text_color']; ?>" class="color-picker" data-alpha="true" /></td>
+          </tr>
+          <tr>
+            <th><?php echo __( 'Background', 'better_wp_login_page' ); ?></th>
             <td><input type="text" name="bwplp_submit_btn_bg" value="<?php echo $settings['submit_btn_bg']; ?>" class="color-picker" data-alpha="true" /></td>
           </tr>
         </table>

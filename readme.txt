@@ -5,7 +5,7 @@ Tags: login, login page, login form, wp-admin, wp-login.php
 Requires at least: 4.7.0
 Tested up to: 5.4
 Requires PHP: 5.4
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -24,9 +24,14 @@ This plugin allows users to enhance the default login page.
 
 == Changelog ==
 
-= 1.0.1 =
-Minor CSS changes in public view.
+= 1.0.2 =
+- Change in the public styles enqueue method.
+- Fixed typos in settings page.
+- Adds the option to change the submit button text color.
+- Now the checkbox icon adopts the accent color.
 
+= 1.0.1 =
+- Minor CSS changes in public view.
 
 == Frequently Asked Questions ==
 
