@@ -5,7 +5,7 @@
  * Text Domain: better_wp_login_page
  * Description: This plugin allows users to enhance the default login page.
  * Plugin URI: https://github.com/cortesfrau/better-wp-login-page/
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: Lluís Cortès
  * Author URI: https://lluiscortes.com
  * License: GPLv2 or later
@@ -204,7 +204,7 @@ class Better_WP_Login_Page {
           background-image: url(<?php echo $logo_url; ?>) !important;
           background-size: contain !important;
           background-repeat: no-repeat !important;
-          background-position: center bottom !important;
+          background-position: center center !important;
           width: 100% !important;
           min-height: 120px !important;
         }
@@ -232,12 +232,16 @@ class Better_WP_Login_Page {
       #loginform .dashicons {
         color: <?php echo $accent_color; ?> !important;
       }
-      #loginform .login .message,
-      #loginform .login .success {
-        border-color: <?php echo $accent_color; ?> !important;
-      }
       #loginform label {
         color: <?php echo $label_color; ?> !important;
+      }
+
+      /*----------------*/
+      /*--- Messages ---*/
+      /*----------------*/
+      .login .message,
+      .login .success {
+        border-color: <?php echo $accent_color; ?> !important;
       }
 
 
