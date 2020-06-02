@@ -5,7 +5,7 @@ Tags: login, login page, login form, wp-admin, wp-login.php
 Requires at least: 4.7.0
 Tested up to: 5.4
 Requires PHP: 5.4
-Stable tag: 1.0.2
+Stable tag: 1.0.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -23,6 +23,9 @@ This plugin allows users to enhance the default login page.
 2. Settings page
 
 == Changelog ==
+
+= 1.0.4 =
+- Adds the option to change the form footer links
 
 = 1.0.3 =
 - Adds styles to the remember password subform.

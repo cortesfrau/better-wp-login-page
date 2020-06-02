@@ -5,7 +5,7 @@
  * Text Domain: better_wp_login_page
  * Description: This plugin allows users to enhance the default login page.
  * Plugin URI: https://github.com/cortesfrau/better-wp-login-page/
- * Version: 1.0.2
+ * Version: 1.0.4
  * Author: Lluís Cortès
  * Author URI: https://lluiscortes.com
  * License: GPLv2 or later
@@ -177,6 +177,7 @@ class Better_WP_Login_Page {
     register_setting( 'better_wp_login_page_settings', 'bwplp_form_bg' );
     register_setting( 'better_wp_login_page_settings', 'bwplp_bg_img' );
     register_setting( 'better_wp_login_page_settings', 'bwplp_label_color' );
+    register_setting( 'better_wp_login_page_settings', 'bwplp_footer_link_color' );
   }
 
   // Get Settings
@@ -191,6 +192,7 @@ class Better_WP_Login_Page {
       'form_bg'               => get_option( 'bwplp_form_bg' ),
       'bg_img'                => get_option( 'bwplp_bg_img' ),
       'label_color'           => get_option( 'bwplp_label_color' ),
+      'footer_link_color'     => get_option( 'bwplp_footer_link_color' ),
     ];
 
     return $settings;
@@ -235,12 +237,16 @@ class Better_WP_Login_Page {
             <td><input type="text" name="bwplp_form_bg" value="<?php echo $settings['form_bg']; ?>" class="color-picker" data-alpha="true" /></td>
           </tr>
           <tr>
+            <th><?php echo __( 'Accent color', 'better_wp_login_page' ); ?></th>
+            <td><input type="text" name="bwplp_accent_color" value="<?php echo $settings['accent_color']; ?>" class="color-picker" data-alpha="true" /></td>
+          </tr>
+          <tr>
             <th><?php echo __( 'Labels', 'better_wp_login_page' ); ?></th>
             <td><input type="text" name="bwplp_label_color" value="<?php echo $settings['label_color']; ?>" class="color-picker" data-alpha="true" /></td>
           </tr>
           <tr>
-            <th><?php echo __( 'Accent color', 'better_wp_login_page' ); ?></th>
-            <td><input type="text" name="bwplp_accent_color" value="<?php echo $settings['accent_color']; ?>" class="color-picker" data-alpha="true" /></td>
+            <th><?php echo __( 'Footer link color', 'better_wp_login_page' ); ?></th>
+            <td><input type="text" name="bwplp_footer_link_color" value="<?php echo $settings['footer_link_color']; ?>" class="color-picker" data-alpha="true" /></td>
           </tr>
         </table>
 
@@ -256,7 +262,6 @@ class Better_WP_Login_Page {
           </tr>
         </table>
         <!-- Colors : END -->
-
 
         <?php submit_button(); ?>
 

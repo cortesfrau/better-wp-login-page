@@ -5,28 +5,30 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 $settings = $this->get_settings();
 
-$logo_id          = $settings['logo_img'];
-$accent_color     = $settings['accent_color'];
-$submit_btn_bg    = $settings['submit_btn_bg'];
-$submit_btn_text  = $settings['submit_btn_text_color'];
-$bg_color         = $settings['bg_color'];
-$form_bg          = $settings['form_bg'];
-$bg_img           = $settings['bg_img'];
-$label_color      = $settings['label_color'];
+$logo_id            = $settings['logo_img'];
+$accent_color       = $settings['accent_color'];
+$submit_btn_bg      = $settings['submit_btn_bg'];
+$submit_btn_text    = $settings['submit_btn_text_color'];
+$bg_color           = $settings['bg_color'];
+$form_bg            = $settings['form_bg'];
+$bg_img             = $settings['bg_img'];
+$label_color        = $settings['label_color'];
+$footer_link_color  = $settings['footer_link_color'];
 
 ?>
 
 <style type="text/css">
 
   :root {
-    --transition-base:  .2s all ease-in-out;
-    --less-opacity:     .75;
-    --accent-color:     <?php echo $accent_color; ?>;
-    --bg-color:         <?php echo $bg_color; ?>;
-    --submit-btn-bg:    <?php echo $submit_btn_bg; ?>;
-    --submit-btn-text:  <?php echo $submit_btn_text; ?>;
-    --label-color:      <?php echo $label_color; ?>;
-    --form-bg:          <?php echo $form_bg; ?>;
+    --transition-base:    .2s all ease-in-out;
+    --less-opacity:       .75;
+    --accent-color:       <?php echo $accent_color; ?>;
+    --bg-color:           <?php echo $bg_color; ?>;
+    --submit-btn-bg:      <?php echo $submit_btn_bg; ?>;
+    --submit-btn-text:    <?php echo $submit_btn_text; ?>;
+    --label-color:        <?php echo $label_color; ?>;
+    --form-bg:            <?php echo $form_bg; ?>;
+    --footer-link-color:  <?php echo $footer_link_color; ?>
   }
 
   /*------------------------*/
@@ -144,6 +146,14 @@ $label_color      = $settings['label_color'];
     color: var(--label-color) !important;
     font-size: 13px !important;
     margin: 0 0 6px 0 !important;
+  }
+
+  /*-------------------------*/
+  /*--- Footer Link Color ---*/
+  /*-------------------------*/
+  .login #backtoblog a,
+  .login #nav a {
+    color: var(--footer-link-color) !important;
   }
 
   /*----------------*/
