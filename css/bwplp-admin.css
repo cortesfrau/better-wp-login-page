@@ -1,0 +1,12 @@
+:root {
+  --white: #fff;
+  --gray: #ccc;
+}
+
+
+/*-------------------------*/
+/*--- Upload Image Form ---*/
+/*-------------------------*/
+.bwplp-img-upload-form img {
+  margin: 0 0 .5rem 0;
+}
