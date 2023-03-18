@@ -1,10 +1,21 @@
+// Color Picker Alpha Channel
+import './inc/wp-color-picker-alpha';
+
+
 jQuery(function($) {
 
   $(document).ready(function() {
 
-    //--------------------//
-    //--- MEDIA UPLOAD ---//
-    //--------------------//
+
+    /**
+     * Color Picker
+     */
+    $('.color-picker').wpColorPicker();
+
+
+    /**
+     * Media Upload Button
+     */
 
     // The Upload button
     $('.bwplp-upload-image-btn').click(function() {
@@ -22,7 +33,7 @@ jQuery(function($) {
 
     // The Remove button
     $('.bwplp-remove-image-btn').click(function() {
-      var answer = confirm('¿Estás seguro?');
+      var answer = confirm('¿Estás seguro/a de que quieres desvincular la imagen?');
       if (answer === true) {
         var src = $(this).parent().prev().attr('data-src');
         $(this).parent().prev().attr('src', src);
@@ -30,7 +41,6 @@ jQuery(function($) {
       }
       return false;
     });
-
 
   });
 

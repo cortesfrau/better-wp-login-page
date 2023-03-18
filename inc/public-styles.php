@@ -1,19 +1,22 @@
 <?php
 
 // Exit if accessed directly
-if ( ! defined( 'ABSPATH' ) ) exit;
+if (!defined('ABSPATH')) exit;
 
 $settings = $this->get_settings();
 
-$logo_id            = $settings['logo_img'];
-$accent_color       = $settings['accent_color'];
-$submit_btn_bg      = $settings['submit_btn_bg'];
-$submit_btn_text    = $settings['submit_btn_text_color'];
-$bg_color           = $settings['bg_color'];
-$form_bg            = $settings['form_bg'];
-$bg_img             = $settings['bg_img'];
-$label_color        = $settings['label_color'];
-$footer_link_color  = $settings['footer_link_color'];
+$logo_id                  = $settings['logo_img'];
+$accent_color             = $settings['accent_color'];
+$submit_btn_bg            = $settings['submit_btn_bg'];
+$submit_btn_text          = $settings['submit_btn_text_color'];
+$bg_color                 = $settings['bg_color'];
+$form_bg                  = $settings['form_bg'];
+$bg_img                   = $settings['bg_img'];
+$label_color              = $settings['label_color'];
+$footer_link_color        = $settings['footer_link_color'];
+$remove_language_switcher = $settings['remove_language_switcher'];
+$form_box_shadow          = $settings['form_box_shadow'];
+$form_box_border_radius   = $settings['form_box_border_radius'];
 
 ?>
 
@@ -22,6 +25,9 @@ $footer_link_color  = $settings['footer_link_color'];
   :root {
     --transition-base:    .2s all ease-in-out;
     --less-opacity:       .75;
+    --box-shadow-sm:       0 .25rem 1rem rgba(0,0,0, .15);
+    --box-shadow-lg:       0 .5rem 2rem rgba(0, 0, 0, .2);
+    --box-shadow-xl:       0 .75rem 3rem rgba(0, 0, 0, .3);
     --accent-color:       <?php echo $accent_color; ?>;
     --bg-color:           <?php echo $bg_color; ?>;
     --submit-btn-bg:      <?php echo $submit_btn_bg; ?>;
@@ -34,7 +40,7 @@ $footer_link_color  = $settings['footer_link_color'];
   /*------------------------*/
   /*--- Background Image ---*/
   /*------------------------*/
-  <?php if ( ! empty( $bg_img ) ) { $bg_img = wp_get_attachment_image_src( $bg_img, 'full' )[0]; ?>
+  <?php if (!empty($bg_img)) { $bg_img = wp_get_attachment_image_src($bg_img, 'full')[0]; ?>
 
     .login {
       background-image: url(<?php echo $bg_img; ?>) !important;
@@ -55,7 +61,7 @@ $footer_link_color  = $settings['footer_link_color'];
   /*------------*/
   /*--- LOGO ---*/
   /*------------*/
-  <?php if ( ! empty( $logo_id ) ) { $logo_url = wp_get_attachment_image_src( $logo_id, 'full' )[0]; ?>
+  <?php if (!empty($logo_id)) { $logo_url = wp_get_attachment_image_src($logo_id, 'full')[0]; ?>
 
     #login h1 a {
       background-image: url(<?php echo $logo_url; ?>) !important;
@@ -81,6 +87,22 @@ $footer_link_color  = $settings['footer_link_color'];
     margin: 0 5% !important;
     width: auto !important;
     padding: 2rem !important;
+    border-radius: <?php echo $form_box_border_radius.'px !important;'; ?>
+
+    <?php switch ($form_box_shadow) {
+      case 'sm':
+        echo 'box-shadow: var(--box-shadow-sm) !important';
+        break;
+      case 'lg':
+        echo 'box-shadow: var(--box-shadow-lg) !important';
+        break;
+      case 'xl':
+        echo 'box-shadow: var(--box-shadow-xl) !important';
+        break;
+      default:
+        echo 'box-shadow: none !important';
+    } ?>
+
   }
 
   /*------------------*/
@@ -190,6 +212,31 @@ $footer_link_color  = $settings['footer_link_color'];
   .login #backtoblog {
     display: none !important;
   }
+
+  /*-------------------------*/
+  /*--- Language Switcher ---*/
+  /*-------------------------*/
+  <?php if ($remove_language_switcher) { ?>
+
+    #language-switcher {
+      display: none !important;
+      visibility: hidden !important;
+    }
+
+  <?php } ?>
+
+  #language-switcher {
+    margin-top: 2rem !important;
+  }
+  #language-switcher select {
+    margin: 0 0 0 10px !important;
+    width: calc(100% - 34px) !important;
+    min-height: 40px !important;
+  }
+  #language-switcher label {
+    margin: 0 !important;
+  }
+
 
   /*---------------------*/
   /*--- Media Queries ---*/

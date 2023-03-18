@@ -3,9 +3,9 @@ Contributors: cortesfrau
 Donate link: http://lluiscortes.com
 Tags: login, login page, login form, wp-admin, wp-login.php
 Requires at least: 4.7.0
-Tested up to: 5.4
+Tested up to: 6.1.1
 Requires PHP: 5.4
-Stable tag: 1.0.4
+Stable tag: 1.1.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -24,6 +24,11 @@ This plugin allows users to enhance the default WP login page.
 
 == Changelog ==
 
+= 1.1.2 =
+- Added the option to hide the language switcher.
+- Added the option to add box shadow to the form box.
+- Added the option to add border radius to the form box.
+
 = 1.0.4 =
 - Adds the option to change the form footer links
 
@@ -38,6 +43,9 @@ This plugin allows users to enhance the default WP login page.
 
 = 1.0.1 =
 - Minor CSS changes in public view.
+
+= 1.1.0 =
+- Fixed bug with language select.
 
 == Frequently Asked Questions ==
 
